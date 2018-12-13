@@ -93,10 +93,7 @@ class COCO:
         anns, cats, imgs = {}, {}, {}
         imgToAnns,catToImgs = defaultdict(list),defaultdict(list)
         if 'annotations' in self.dataset:
-            for ann in self.dataset['annotations']:
-                if  len(ann['keypoints']) == 51:
-                    ann['keypoints'] = ann['keypoints'][5*3:]
-                assert len(ann['keypoints']) == 36
+            for ann in self.dataset['annotations']: 
                 imgToAnns[ann['image_id']].append(ann)
                 anns[ann['id']] = ann
 
